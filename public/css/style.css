@@ -1,4 +1,8 @@
-
+/* font-family: 'Balsamiq Sans', cursive;
+font-family: 'Ceviche One', cursive;
+font-family: 'Open Sans Condensed', sans-serif;
+font-family: 'Permanent Marker', cursive;
+font-family: 'Shadows Into Light', cursive; */
 .nav-ul{
   margin-left: auto!important;
 }
@@ -6,8 +10,8 @@ nav{
   padding: 3rem;
 }
 .navbar-brand{
-  font-size: 3rem;
-  font-weight: 600;
+  font-size: 4rem;
+  font-family: 'Ceviche One',cursive;
 }
 .container-fluid{
   margin-top: 1rem;
@@ -37,6 +41,10 @@ nav{
 .market-today{
   margin-top:3rem;
 }
+.nav-link{
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 1.5rem;
+}
 .corona-update h4,.market-today h4{
   background-color: #0275d8;
   text-align: center;
@@ -49,10 +57,18 @@ nav{
 }
 .main-container h1{
     color: #0275d8;
+    font-family: 'Permanent Marker', cursive;
 }
 .news-main{
   margin: 1rem 0;
   height: 180px;
+}
+.news-main h4{
+  font-family: 'Balsamiq Sans',cursive;
+}
+.news-main p{
+  font-family: 'Open Sans Condensed';
+  font-size: 20px;
 }
 .main-img{
   height:150px;
@@ -60,7 +76,7 @@ nav{
   float: left;
   /* padding: 10px; */
   border-style:solid;
-  border-width: thick;
+  border-width: medium;
   margin-right: 10px;
   opacity: 0.9;
 }
@@ -95,10 +111,10 @@ hr{
   text-align:center;
   margin-top: 3rem;
 }
-.subscribe h3{
+.subscribe h4{
   background-color: #0275d8;
   color:#f7f7f7;
-  padding: 0.3rem;
+  padding: 0.2rem;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
   border-bottom-right-radius: 20px;
