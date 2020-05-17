@@ -1,0 +1,127 @@
+
+.nav-ul{
+  margin-left: auto!important;
+}
+nav{
+  padding: 3rem;
+}
+.navbar-brand{
+  font-size: 3rem;
+  font-weight: 600;
+}
+.container-fluid{
+  margin-top: 1rem;
+}
+.main-container{
+  padding: 0 2rem;
+}
+.aside{
+  /* top:0; */
+  height:100%;
+  position: fixed;
+  right:0;
+  transition: 0.5;
+}
+.asideOnScroll{
+  top:0;
+}
+.corona-update,.market-today{
+  position: relative;
+  width:100%;
+  height: 150px;
+  border-radius: 20px;
+  border-width: thin;
+  border-style: solid;
+  box-shadow: 10px 5px gray;
+}
+.market-today{
+  margin-top:3rem;
+}
+.corona-update h4,.market-today h4{
+  background-color: #0275d8;
+  text-align: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: #f7f7f7;
+}
+.d-block{
+  text-align: center;
+}
+.main-container h1{
+    color: #0275d8;
+}
+.news-main{
+  margin: 1rem 0;
+  height: 180px;
+}
+.main-img{
+  height:150px;
+  width:200px;
+  float: left;
+  /* padding: 10px; */
+  border-style:solid;
+  border-width: thick;
+  margin-right: 10px;
+  opacity: 0.9;
+}
+/* .news-main p{
+  border-width: medium;
+  border-left-width: 2px;
+  border-color: skyblue;
+} */
+a{
+  color:#0275d8;
+}
+hr{
+  background-color:#0275d8;
+}
+.btn{
+  margin:2rem 0;
+}
+.contact-us{
+  text-align: center;
+  display: none;
+  position:fixed;
+  right:110px;
+  top:30px;
+}
+.fab,.fas{
+  cursor: pointer;
+}
+.nxt-btn{
+    background-color:#0275d8;
+}
+.subscribe{
+  text-align:center;
+  margin-top: 3rem;
+}
+.subscribe h3{
+  background-color: #0275d8;
+  color:#f7f7f7;
+  padding: 0.3rem;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  cursor: pointer;
+}
+.email-box{
+  position: relative;
+  bottom: 10px;
+  border-style: solid;
+  border-width: thin;
+}
+.aside form{
+  margin: 0;
+  width: 80%;
+  margin: 0 auto;
+  box-shadow: 10px 5px gray;
+  display: none;
+  border-top-color:#0275d8;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.sub-control{
+  width: 90%;
+  margin:10px auto 0 auto;
+}

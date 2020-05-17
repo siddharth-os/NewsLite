@@ -1,0 +1,17 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $(window).scroll(function(){
+    if( $(document).scrollTop()>100){
+       $(".contact-us").fadeIn('slow');
+     }
+     else{
+       $(".contact-us").fadeOut('fast');
+     }
+ });
+ $(".sub-form-heading").click(function(){
+   $(".email-box").slideToggle();
+ });
+</script>
+</body>
+</html>
+      <!-- $(".aside").addClass("asideOnScroll").delay(800); -->

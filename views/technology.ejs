@@ -1,0 +1,25 @@
+<%-include('partials/header')-%>
+<!-- Navbar -->
+<%-include('partials/navbar')-%>
+<!-- MAin Content -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-9 main-container">
+      <hr>
+      <h1><%=headings%></h1>
+      <hr>
+      <%  for(var i=0;i<20;i++){%>
+      <div class="news-main">
+        <img class="main-img" src=<%= news[i].urlToImage%> alt="not available">
+        <h4><%=news[i].title%></h4>
+        <p><%=news[i].content%>...<a href=<%=news[i].url%>>Read Full Article</a></p>
+      </div>
+      <hr />
+      <%}%>
+      <button class="btn btn-primary btn-md show-btn btn-block" name="button">Show More</button>
+    </div>
+    <%-include("partials/aside")-%>
+  </div>
+  </div>
+  <%-include('partials/contact')-%>
+<%-include('partials/footer')-%>
