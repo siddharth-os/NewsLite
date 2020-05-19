@@ -3,9 +3,11 @@
   $(window).scroll(function(){
     if( $(document).scrollTop()>100){
        $(".contact-us").fadeIn('slow');
+       $(".top").fadeIn('slow');
      }
      else{
        $(".contact-us").fadeOut('fast');
+       $(".top").fadeOut('fast');
      }
  });
  $(".sub-form-heading").click(function(){

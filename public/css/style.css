@@ -123,9 +123,13 @@ hr{
 }
 .email-box{
   position: relative;
-  bottom: 10px;
+  bottom: 7px;
   border-style: solid;
   border-width: thin;
+  overflow-x: auto;
+  height: 180px;
+  padding: 20px;
+  text-align: left;
 }
 .aside form{
   margin: 0;
@@ -137,7 +141,25 @@ hr{
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
+.sub-btn{
+  margin-top: 0;
+}
 .sub-control{
   width: 90%;
   margin:10px auto 0 auto;
+}
+.top{
+  font-size: 30px;
+  color:#f7f7f7;
+  background-color:#0275d8;
+  border-style: none;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  z-index: -1;
+  display: none;
 }
