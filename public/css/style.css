@@ -148,6 +148,12 @@ hr{
   width: 90%;
   margin:10px auto 0 auto;
 }
+.a-top-btn{
+  color:#f7f7f7;
+}
+.a-top-btn:hover{
+  color:#000;
+}
 .top{
   font-size: 30px;
   color:#f7f7f7;
