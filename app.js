@@ -149,6 +149,7 @@ app.post("/",function(req,res){
   searchString=req.body.fromSearch;
   callingYou(searchString);
   res.render("posts",{headings:searchString,news:searchNews});
+  res.redirect("/posts");
 });
 
 app.listen(process.env.PORT || 3000,function(req,res){
