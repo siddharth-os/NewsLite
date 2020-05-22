@@ -5,7 +5,7 @@ const bodyParser=require("body-parser");
 const https=require("https");
 
 const app=express();
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({extended:false}));
 app.set('view engine','ejs');
 app.use(express.static("public"));
 // https://api.covid19india.org/data.json
@@ -17,9 +17,10 @@ let technologyNews=[];
 let sportsNews=[];
 let bollywoodNews=[];
 let coronaNews=[];
-let searchNews=[];
+let searchNews;
 let searchString="";
 let headings="";
+let test=0;
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('ab86007ea68245f19e45b73148c78882');
 const urlCovid="https://api.covid19india.org/data.json";
@@ -100,8 +101,8 @@ newsapi.v2.everything({
 });
 
 app.get("/",function(req,res){
-  headings="Top-Headlines";
-  res.render("home",{headings:headings,news:topHeadings});
+    headings="Top-Headlines";
+    res.render("home",{headings:headings,news:topHeadings});
 });
 
 
@@ -146,10 +147,10 @@ function callingYou(string){
     sortBy: 'relevancy',
     page: 2
   }).then(response => {
-    searchNews=response.articles;
+    searchNews=response;
   });
 }
-app.post("/",function(req,res){
+app.post("/posts",function(req,res){
   searchString=req.body.fromSearch;
   callingYou(searchString);
   res.redirect("/posts");

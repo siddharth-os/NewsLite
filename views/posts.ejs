@@ -10,9 +10,9 @@
       <hr>
       <%  for(var i=0;i<20;i++){%>
       <div class="news-main">
-        <img class="main-img" src=<%= news[i].urlToImage%> alt="not available">
-        <h4><%=news[i].title%></h4>
-        <p><%=news[i].content%>...<a href=<%=news[i].url%>>Read Full Article</a></p>
+        <img class="main-img" src=<%= news.articles[i].urlToImage%> alt="not available">
+        <h4><%=news.articles[i].title%></h4>
+        <p><%=news.articles[i].content%>...<a href=<%=news.articles[i].url%>>Read Full Article</a></p>
       </div>
       <hr />
       <%}%>
