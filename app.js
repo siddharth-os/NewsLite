@@ -1,4 +1,5 @@
 //jshint esversion:6
+// my name is siddhu
 const express=require("express");
 const bodyParser=require("body-parser");
 const https=require("https");
@@ -130,7 +131,10 @@ app.get("/startup",function(req,res){
   headings="Business : Startup";
   res.render("startup",{headings:headings,news:startupNews});
 });
-
+app.get("/posts",function(req,res){
+  headings=""+searchString;
+  res.render("posts",{headings:headings,news:searchNews});
+});
 function callingYou(string){
   newsapi.v2.everything({
     q:string,
@@ -148,7 +152,6 @@ function callingYou(string){
 app.post("/",function(req,res){
   searchString=req.body.fromSearch;
   callingYou(searchString);
-  res.render("posts",{headings:searchString,news:searchNews});
   res.redirect("/posts");
 });
 
