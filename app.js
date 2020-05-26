@@ -1,10 +1,11 @@
 //jshint esversion:6
+// my name is piddhu
 const express=require("express");
 const bodyParser=require("body-parser");
 const https=require("https");
 
 const app=express();
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({extended:false}));
 app.set('view engine','ejs');
 app.use(express.static("public"));
 // https://api.covid19india.org/data.json
@@ -19,6 +20,7 @@ let coronaNews=[];
 let searchNews=[];
 let searchString="";
 let headings="";
+let test=0;
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('ab86007ea68245f19e45b73148c78882');
 const urlCovid="https://api.covid19india.org/data.json";
@@ -97,10 +99,9 @@ newsapi.v2.everything({
 }).then(response => {
   startupNews=response.articles;
 });
-
 app.get("/",function(req,res){
-  headings="Top-Headlines";
-  res.render("home",{headings:headings,news:topHeadings});
+    headings="Top-Headlines";
+    res.render("home",{headings:headings,news:topHeadings});
 });
 
 
@@ -130,10 +131,10 @@ app.get("/startup",function(req,res){
   headings="Business : Startup";
   res.render("startup",{headings:headings,news:startupNews});
 });
-
-function callingYou(string){
+app.get("/posts",function(req,res){
+  headings=searchString;
   newsapi.v2.everything({
-    q:string,
+    q:searchString,
     sources: '',
     domains: '',
     from: '',
@@ -143,12 +144,18 @@ function callingYou(string){
     page: 2
   }).then(response => {
     searchNews=response.articles;
+    res.render("posts",{
+      headings:searchString,
+      news:searchNews
+    });
   });
-}
+
+});
+// function callingYou(string){
+//
+// }
 app.post("/",function(req,res){
   searchString=req.body.fromSearch;
-  callingYou(searchString);
-  res.render("posts",{headings:searchString,news:searchNews});
   res.redirect("/posts");
 });
 
