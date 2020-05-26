@@ -3,7 +3,7 @@
 const express=require("express");
 const bodyParser=require("body-parser");
 const https=require("https");
-
+const covid=require("covid19-api");
 const app=express();
 app.use(bodyParser.urlencoded({extended:false}));
 app.set('view engine','ejs');
@@ -21,6 +21,7 @@ let searchNews=[];
 let searchString="";
 let headings="";
 let test=0;
+let covidData;
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('ab86007ea68245f19e45b73148c78882');
 const urlCovid="https://api.covid19india.org/data.json";
@@ -99,37 +100,43 @@ newsapi.v2.everything({
 }).then(response => {
   startupNews=response.articles;
 });
+// covid data
+covid.getReportsByCountries('India')
+  .then(function(result){
+    covidData=result[0][0];
+  });
+
 app.get("/",function(req,res){
     headings="Top-Headlines";
-    res.render("home",{headings:headings,news:topHeadings});
+    res.render("home",{headings:headings,news:topHeadings,data:covidData});
 });
 
 
 app.get("/business",function(req,res){
   headings="Business";
-  res.render("business",{headings:headings,news:businessNews});
+  res.render("business",{headings:headings,news:businessNews,data:covidData});
 });
 
 
 app.get("/technology",function(req,res){
   headings="Technology";
-  res.render("technology",{headings:headings,news:technologyNews});
+  res.render("technology",{headings:headings,news:technologyNews,data:covidData});
 });
 app.get("/sports",function(req,res){
   headings="Sports";
-  res.render("sports",{headings:headings,news:sportsNews});
+  res.render("sports",{headings:headings,news:sportsNews,data:covidData});
 });
 app.get("/bollywood",function(req,res){
   headings="Bollywood";
-  res.render("bollywood",{headings:headings,news:bollywoodNews});
+  res.render("bollywood",{headings:headings,news:bollywoodNews,data:covidData});
 });
 app.get("/corona",function(req,res){
   headings="COVID-19";
-  res.render("corona",{headings:headings,news:coronaNews});
+  res.render("corona",{headings:headings,news:coronaNews,data:covidData});
 });
 app.get("/startup",function(req,res){
   headings="Business : Startup";
-  res.render("startup",{headings:headings,news:startupNews});
+  res.render("startup",{headings:headings,news:startupNews,data:covidData});
 });
 app.get("/posts",function(req,res){
   headings=searchString;
@@ -146,7 +153,8 @@ app.get("/posts",function(req,res){
     searchNews=response.articles;
     res.render("posts",{
       headings:searchString,
-      news:searchNews
+      news:searchNews,
+      data:covidData
     });
   });
 

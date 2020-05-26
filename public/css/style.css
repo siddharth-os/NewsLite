@@ -45,6 +45,15 @@ nav{
   font-family: 'Shadows Into Light', cursive;
   font-size: 1.5rem;
 }
+.small-heading{
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.data-corona{
+  font-size: 2rem;
+    font-family: 'Open Sans Condensed';
+    font-weight: 600;
+}
 .corona-update h4,.market-today h4{
   background-color: #0275d8;
   text-align: center;
