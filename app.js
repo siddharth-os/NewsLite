@@ -17,7 +17,7 @@ let technologyNews=[];
 let sportsNews=[];
 let bollywoodNews=[];
 let coronaNews=[];
-let searchNews;
+let searchNews=[];
 let searchString="";
 let headings="";
 let test=0;
@@ -131,10 +131,10 @@ app.get("/startup",function(req,res){
   headings="Business : Startup";
   res.render("startup",{headings:headings,news:startupNews});
 });
-
-function callingYou(string){
+app.get("/posts",function(req,res){
+  headings=searchString;
   newsapi.v2.everything({
-    q:string,
+    q:searchString,
     sources: '',
     domains: '',
     from: '',
@@ -143,14 +143,19 @@ function callingYou(string){
     sortBy: 'relevancy',
     page: 2
   }).then(response => {
-    searchNews=response;
+    searchNews=response.articles;
+    res.render("posts",{
+      headings:searchString,
+      news:searchNews
+    });
   });
-}
-app.post("/posts",function(req,res){
+
+});
+// function callingYou(string){
+//
+// }
+app.post("/",function(req,res){
   searchString=req.body.fromSearch;
-  callingYou(searchString);
-  headings=""+searchString;
-  res.render("posts",{headings:headings,news:searchNews});
   res.redirect("/posts");
 });
 
