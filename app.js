@@ -4,11 +4,14 @@ const express=require("express");
 const bodyParser=require("body-parser");
 const https=require("https");
 const covid=require("covid19-api");
+
 const app=express();
 app.use(bodyParser.urlencoded({extended:false}));
 app.set('view engine','ejs');
 app.use(express.static("public"));
-// https://api.covid19india.org/data.json
+// stock data
+const stockAlert = require("stock-alert");
+
 
 
 let topHeadings=[];
@@ -22,6 +25,8 @@ let searchString="";
 let headings="";
 let test=0;
 let covidData;
+var nifty;
+var sensex;
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('ab86007ea68245f19e45b73148c78882');
 const urlCovid="https://api.covid19india.org/data.json";
@@ -105,38 +110,43 @@ covid.getReportsByCountries('India')
   .then(function(result){
     covidData=result[0][0];
   });
-
+  stockAlert("SENSEX").then(function(response){
+    sensex=response.data;
+  });
+  stockAlert("NIFTY").then(function(response){
+    nifty=response.data;
+  });
 app.get("/",function(req,res){
     headings="Top-Headlines";
-    res.render("home",{headings:headings,news:topHeadings,data:covidData});
+    res.render("home",{headings:headings,news:topHeadings,data:covidData,nifty:nifty,sensex:sensex});
 });
 
 
 app.get("/business",function(req,res){
   headings="Business";
-  res.render("business",{headings:headings,news:businessNews,data:covidData});
+  res.render("business",{headings:headings,news:businessNews,data:covidData,nifty:nifty,sensex:sensex});
 });
 
 
 app.get("/technology",function(req,res){
   headings="Technology";
-  res.render("technology",{headings:headings,news:technologyNews,data:covidData});
+  res.render("technology",{headings:headings,news:technologyNews,data:covidData,nifty:nifty,sensex:sensex});
 });
 app.get("/sports",function(req,res){
   headings="Sports";
-  res.render("sports",{headings:headings,news:sportsNews,data:covidData});
+  res.render("sports",{headings:headings,news:sportsNews,data:covidData,nifty:nifty,sensex:sensex});
 });
 app.get("/bollywood",function(req,res){
   headings="Bollywood";
-  res.render("bollywood",{headings:headings,news:bollywoodNews,data:covidData});
+  res.render("bollywood",{headings:headings,news:bollywoodNews,data:covidData,nifty:nifty,sensex:sensex});
 });
 app.get("/corona",function(req,res){
   headings="COVID-19";
-  res.render("corona",{headings:headings,news:coronaNews,data:covidData});
+  res.render("corona",{headings:headings,news:coronaNews,data:covidData,nifty:nifty,sensex:sensex});
 });
 app.get("/startup",function(req,res){
   headings="Business : Startup";
-  res.render("startup",{headings:headings,news:startupNews,data:covidData});
+  res.render("startup",{headings:headings,news:startupNews,data:covidData,nifty:nifty,sensex:sensex});
 });
 app.get("/posts",function(req,res){
   headings=searchString;
