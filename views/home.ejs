@@ -16,31 +16,15 @@
       </div>
       <hr />
       <%}%>
-      <div class="foot">
-        <div class="footer-content">
-          <h2>NewsLite</h2>
-          <p>A footer is an additional navigation method for websites. It can hold links, buttons, company info, copyrights, forms and many other elements.</p>
-        </div>
-        <div class="footer-link">
-            <h3>APIs</h3>
-            <li>
-              <ul>
-                <a href="https://newsapi.org/">News Api</a>
-              </ul>
-              <ul>
-                <a href="https://www.npmjs.com/package/covid19-api">Covid19-Api</a>
-              </ul>
-              <ul>
-                <a href="https://www.npmjs.com/package/stock-alert">stock-alert</a>
-              </ul>
-            </li>
-        </div>
-        <p class="copyright">© 2020 copyright: NewsLite</p>
-      </div>
+      <%-include("partials/footer-file.ejs")-%>
     </div>
     <%-include("partials/aside")-%>
   </div>
-
+    <div class="info">
+      <h2>Information</h2>
+      <h4>NewsLite is featured to provide top-20 headlines.</h4>
+      <button type="button" name="close" class="close-btn">close</button>
+    </div>
   </div>
   <%-include('partials/contact')-%>
 <%-include('partials/footer')-%>

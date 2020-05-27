@@ -86,6 +86,7 @@ nav{
   /* padding: 10px; */
   border-style:solid;
   border-width: medium;
+  border-color: #0275d8;
   margin-right: 10px;
   opacity: 0.9;
 }
@@ -187,7 +188,7 @@ hr{
   display: inline-block;
   width: 50%;
   position: relative;
-  bottom: 3.5rem;
+  bottom: 2rem;
 }
 .footer-content h2{
   /* font-family: 'Ceviche One',cursive; */
@@ -220,4 +221,38 @@ li{
 }
 ul{
   text-align: left;
+}
+.info{
+  border-style: solid;
+  border-width: thin;
+  text-align: center;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-shadow: 10px 5px gray;
+  width: 30%;
+  border-color: #0275d8;
+  z-index: 2;
+  position: fixed;
+  top:10rem;
+  left:35%;
+  display: none;
+}
+.info h2{
+  background-color: #0275d8;
+  color:#f7f7f7;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+
+}
+.close-btn{
+  background-color: #0275d8;
+  color:#f7f7f7;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-style: solid;
+  border-width: thin;
 }

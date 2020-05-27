@@ -167,7 +167,9 @@ app.get("/posts",function(req,res){
     res.render("posts",{
       headings:searchString,
       news:searchNews,
-      data:covidData
+      data:covidData,
+      nifty:nifty,
+      sensex:sensex
     });
   });
 
