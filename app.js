@@ -109,11 +109,14 @@ newsapi.v2.everything({
 covid.getReportsByCountries('India')
   .then(function(result){
     covidData=result[0][0];
-  });
-  stockAlert("SENSEX").then(function(response){
+});
+// stock data
+  stockAlert("SENSEX")
+  .then(function(response){
     sensex=response.data;
   });
-  stockAlert("NIFTY").then(function(response){
+  stockAlert("NIFTY")
+  .then(function(response){
     nifty=response.data;
   });
 app.get("/",function(req,res){

@@ -178,3 +178,46 @@ hr{
   z-index: -1;
   display: none;
 }
+
+.foot{
+  padding: 2rem;
+}
+.footer-content{
+  text-align: left;
+  display: inline-block;
+  width: 50%;
+  position: relative;
+  bottom: 3.5rem;
+}
+.footer-content h2{
+  /* font-family: 'Ceviche One',cursive; */
+  font-size: 2.5rem;
+  color:#0275d8;
+}
+.footer-link{
+  text-align: left;
+  display: inline-block;
+  padding-left: 4rem;
+  position: relative;
+  bottom:1.8rem;
+}
+.footer-content p{
+  margin-left: 2rem;
+  text-align: left;
+  color:#0275d8;
+}
+.footer-link h3{
+  /* font-family: 'Ceviche One',cursive; */
+  color:#0275d8;
+}
+.copyright{
+  text-align: center;
+  color:#0275d8;
+  font-weight: lighter;
+}
+li{
+  list-style: none;
+}
+ul{
+  text-align: left;
+}
