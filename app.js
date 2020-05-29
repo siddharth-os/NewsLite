@@ -105,12 +105,43 @@ newsapi.v2.everything({
 }).then(response => {
   startupNews=response.articles;
 });
-// covid data
+
+
+// calling here to resolve problem
 covid.getReportsByCountries('India')
   .then(function(result){
     covidData=result[0][0];
 });
-// stock data
+stockAlert("SENSEX")
+.then(function(response){
+  sensex=response.data;
+});
+stockAlert("NIFTY")
+.then(function(response){
+  nifty=response.data;
+});
+
+
+app.get("/",function(req,res){
+    headings="Top-Headlines";
+    stockAlert("SENSEX")
+    .then(function(response){
+      sensex=response.data;
+    });
+    stockAlert("NIFTY")
+    .then(function(response){
+      nifty=response.data;
+    });
+    covid.getReportsByCountries('India')
+      .then(function(result){
+        covidData=result[0][0];
+    });
+    res.render("home",{headings:headings,news:topHeadings,data:covidData,nifty:nifty,sensex:sensex});
+});
+
+
+app.get("/business",function(req,res){
+  headings="Business";
   stockAlert("SENSEX")
   .then(function(response){
     sensex=response.data;
@@ -119,36 +150,92 @@ covid.getReportsByCountries('India')
   .then(function(response){
     nifty=response.data;
   });
-app.get("/",function(req,res){
-    headings="Top-Headlines";
-    res.render("home",{headings:headings,news:topHeadings,data:covidData,nifty:nifty,sensex:sensex});
-});
-
-
-app.get("/business",function(req,res){
-  headings="Business";
+  covid.getReportsByCountries('India')
+    .then(function(result){
+      covidData=result[0][0];
+  });
   res.render("business",{headings:headings,news:businessNews,data:covidData,nifty:nifty,sensex:sensex});
 });
 
 
 app.get("/technology",function(req,res){
   headings="Technology";
+  stockAlert("SENSEX")
+  .then(function(response){
+    sensex=response.data;
+  });
+  stockAlert("NIFTY")
+  .then(function(response){
+    nifty=response.data;
+  });
+  covid.getReportsByCountries('India')
+    .then(function(result){
+      covidData=result[0][0];
+  });
   res.render("technology",{headings:headings,news:technologyNews,data:covidData,nifty:nifty,sensex:sensex});
 });
 app.get("/sports",function(req,res){
   headings="Sports";
+  stockAlert("SENSEX")
+  .then(function(response){
+    sensex=response.data;
+  });
+  stockAlert("NIFTY")
+  .then(function(response){
+    nifty=response.data;
+  });
+  covid.getReportsByCountries('India')
+    .then(function(result){
+      covidData=result[0][0];
+  });
   res.render("sports",{headings:headings,news:sportsNews,data:covidData,nifty:nifty,sensex:sensex});
 });
 app.get("/bollywood",function(req,res){
   headings="Bollywood";
+  stockAlert("SENSEX")
+  .then(function(response){
+    sensex=response.data;
+  });
+  stockAlert("NIFTY")
+  .then(function(response){
+    nifty=response.data;
+  });
+  covid.getReportsByCountries('India')
+    .then(function(result){
+      covidData=result[0][0];
+  });
   res.render("bollywood",{headings:headings,news:bollywoodNews,data:covidData,nifty:nifty,sensex:sensex});
 });
 app.get("/corona",function(req,res){
   headings="COVID-19";
+  stockAlert("SENSEX")
+  .then(function(response){
+    sensex=response.data;
+  });
+  stockAlert("NIFTY")
+  .then(function(response){
+    nifty=response.data;
+  });
+  covid.getReportsByCountries('India')
+    .then(function(result){
+      covidData=result[0][0];
+  });
   res.render("corona",{headings:headings,news:coronaNews,data:covidData,nifty:nifty,sensex:sensex});
 });
 app.get("/startup",function(req,res){
   headings="Business : Startup";
+  stockAlert("SENSEX")
+  .then(function(response){
+    sensex=response.data;
+  });
+  stockAlert("NIFTY")
+  .then(function(response){
+    nifty=response.data;
+  });
+  covid.getReportsByCountries('India')
+    .then(function(result){
+      covidData=result[0][0];
+  });
   res.render("startup",{headings:headings,news:startupNews,data:covidData,nifty:nifty,sensex:sensex});
 });
 app.get("/posts",function(req,res){
